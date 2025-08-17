@@ -20,11 +20,6 @@
 // スクロール量の設定
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 
-// マウスレイヤーに留まる設定
-&mkp_input_listener {
-    input-processors = <&zip_temp_layer MOUSE 250>;
-};
-
 / {
     conditional_layers {
         compatible = "zmk,conditional-layers";
