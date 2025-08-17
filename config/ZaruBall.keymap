@@ -133,7 +133,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&tog_off 4 &tog_off 8>,
+                <&tog_off MAC_BASE &tog_off IPAD_BASE>,
                 <&macro_wait_time 200>,
                 <&bt BT_SEL 0>,
                 <&macro_wait_time 500>;
@@ -146,11 +146,11 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&tog_off 4 &tog_off 8>,
+                <&tog_off MAC_BASE &tog_off IPAD_BASE>,
                 <&macro_wait_time 200>,
                 <&bt BT_SEL 1>,
                 <&macro_wait_time 500>,
-                <&tog_on 4>;
+                <&tog_on MAC_BASE>;
 
             label = "BT1";
             wait-ms = <200>;
@@ -160,11 +160,11 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&tog_off 4 &tog_off 8>,
+                <&tog_off MAC_BASE &tog_off IPAD_BASE>,
                 <&macro_wait_time 200>,
                 <&bt BT_SEL 2>,
                 <&macro_wait_time 500>,
-                <&tog_on 8>;
+                <&tog_on IPAD_BASE>;
 
             label = "BT2";
             wait-ms = <200>;
