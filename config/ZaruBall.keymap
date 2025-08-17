@@ -112,7 +112,7 @@
         to_layer_0: to_layer_0 {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
-            bindings = <&tog MOUSE &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+            bindings = <&tog WIN_MOUSE &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "TO_layer_0";
         };
 
@@ -128,7 +128,7 @@
                 <&macro_release>,
                 <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>,
                 <&macro_tap>,
-                <&sl MOUSE>;
+                <&sl WIN_MOUSE>;
 
             label = "MKP_EXIT_AML";
         };
