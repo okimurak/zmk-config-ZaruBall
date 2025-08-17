@@ -212,32 +212,8 @@
         };
 
         /* ---------------- Lower layer ---------------- */
-        win_lower {
-            display-name = "Windows Lower";
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-            bindings = <
-&kp ESC  &kp F1     &kp F2    &kp F3    &kp F4     &kp F5                 &kp KP_NUMLOCK  &trans  &trans  &trans            &kp F6        &kp F7   &kp F8           &kp F9          &kp F10          &kp INT_YEN
-&trans   &trans     &trans    &trans    &trans     &trans                 &trans          &trans  &trans  &trans            &kp F11       &kp F12  &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp LEFT_BRACKET
-&trans   &trans     &trans    &kp UP    &trans     &kp HOME  &kp PG_UP    &trans          &trans  &trans  &trans    &trans  &kp C_VOL_UP  &trans   &trans           &trans          &trans           &kp INTERNATIONAL_1
-&trans   &trans     &kp LEFT  &kp DOWN  &kp RIGHT  &kp END   &kp PG_DN    &trans          &trans  &trans  &trans    &trans  &kp C_VOL_DN  &trans   &trans           &trans          &trans           &trans
-&trans   &kp RSHFT            &trans    &trans     &trans    &trans                                                 &trans  &kp DEL                                                                  &trans
-            >;
-        };
-
-        mac_lower {
-            display-name = "Mac Lower";
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-            bindings = <
-&kp ESC  &kp F1     &kp F2    &kp F3    &kp F4     &kp F5                 &kp KP_NUMLOCK  &trans  &trans  &trans            &kp F6        &kp F7   &kp F8           &kp F9          &kp F10          &kp INT_YEN
-&trans   &trans     &trans    &trans    &trans     &trans                 &trans          &trans  &trans  &trans            &kp F11       &kp F12  &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp LEFT_BRACKET
-&trans   &trans     &trans    &kp UP    &trans     &kp HOME  &kp PG_UP    &trans          &trans  &trans  &trans    &trans  &kp C_VOL_UP  &trans   &trans           &trans          &trans           &kp INTERNATIONAL_1
-&trans   &trans     &kp LEFT  &kp DOWN  &kp RIGHT  &kp END   &kp PG_DN    &trans          &trans  &trans  &trans    &trans  &kp C_VOL_DN  &trans   &trans           &trans          &trans           &trans
-&trans   &kp RSHFT            &trans    &trans     &trans    &trans                                                 &trans  &kp DEL                                                                  &trans
-            >;
-        };
-
-        ipad_lower {
-            display-name = "iPad Lower";
+        lower_layer {
+            display-name = "Lower Layer";
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
             bindings = <
 &kp ESC  &kp F1     &kp F2    &kp F3    &kp F4     &kp F5                 &kp KP_NUMLOCK  &trans  &trans  &trans            &kp F6        &kp F7   &kp F8           &kp F9          &kp F10          &kp INT_YEN
@@ -249,31 +225,8 @@
         };
 
         /* ---------------- Raise layer ---------------- */
-        win_raise {
-            display-name = "Windows Raise";
-            sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
-            bindings = <
-&trans  &none  &none  &none                &none                &none                              &trans  &trans  &trans  &trans               &none     &none     &none     &none      &none  &none
-&trans  &none  &none  &none                &none                &none                              &trans  &trans  &trans  &trans               &none     &none     &none     &none      &none  &none
-&trans  &none  &none  &mkp RCLK            &mkp LCLK            &msc SCRL_UP    &msc SCRL_LEFT     &trans  &trans  &trans  &trans    &kp PG_UP  &kp HOME  &none     &kp UP    &none      &none  &none
-&trans  &none  &none  &mkp MB4             &mkp MB5             &msc SCRL_DOWN  &msc SCRL_RIGHT    &trans  &trans  &trans  &trans    &kp PG_DN  &kp END   &kp LEFT  &kp DOWN  &kp RIGHT  &none  &none
-&trans  &none         &kp INTERNATIONAL_5  &kp INTERNATIONAL_4  &trans          &trans                                               &trans     &kp DEL                                         &none
-            >;
-        };
-
-        mac_raise {
-            display-name = "Mac Raise";
-            sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
-            bindings = <
-&trans  &none  &none  &none      &none      &none                              &trans  &trans  &trans  &trans               &none     &none     &none     &none      &none  &none
-&trans  &none  &none  &none      &none      &none                              &trans  &trans  &trans  &trans               &none     &none     &none     &none      &none  &none
-&trans  &none  &none  &mkp RCLK  &mkp LCLK  &msc SCRL_UP    &msc SCRL_LEFT     &trans  &trans  &trans  &trans    &kp PG_UP  &kp HOME  &none     &kp UP    &none      &none  &none
-&trans  &none  &none  &mkp MB4   &mkp MB5   &msc SCRL_DOWN  &msc SCRL_RIGHT    &trans  &trans  &trans  &trans    &kp PG_DN  &kp END   &kp LEFT  &kp DOWN  &kp RIGHT  &none  &none
-            >;
-        };
-
-        ipad_raise {
-            display-name = "iPad Raise";
+        raise_layer {
+            display-name = "Raise Layer";
             sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
             bindings = <
 &trans  &none  &none  &none                &none                &none                              &trans  &trans  &trans  &trans               &none     &none     &none     &none      &none  &none
