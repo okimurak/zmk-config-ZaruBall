@@ -12,9 +12,9 @@
 #define WIN_BASE   0
 #define MAC_BASE   1
 #define IPAD_BASE  2
-#define MOUSE      5
 #define LOWER      3
 #define RAISE      4
+#define MOUSE      5
 #define ADJUST     6
 
 // スクロール量の設定
@@ -179,7 +179,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        /* ---------------- Base layer ---------------- */
+        // Base layer
         win_base {
             display-name = "Windows Base";
             sensor-bindings = <&scroll_down_up>;
@@ -216,19 +216,7 @@
             >;
         };
 
-        mouse_layer {
-            display-name = "Mouse";
-            sensor-bindings = <&scroll_down_up>;
-            bindings = <
-&kp ESC     &kp N1  &kp N2  &kp N3  &kp N4  &kp N5                     &trans  &trans  &trans  &trans                     &kp N6  &kp N7  &kp N8  &kp N9      &kp N0         &kp MINUS
-&kp TAB     &kp Q   &kp W   &kp E   &kp R   &kp T                      &trans  &trans  &trans  &trans                     &kp Y   &kp U   &kp I   &kp O       &kp P          &kp EQUAL
-&kp CAPS    &kp A   &mkp RCLK       &mkp MCLK       &mkp LCLK       &msc SCRL_UP    &msc SCRL_LEFT     &trans  &trans  &trans  &trans    &msc SCRL_LEFT   &msc SCRL_UP    &mkp LCLK       &mkp MCLK       &mkp RCLK           &kp SEMICOLON  &kp SINGLE_QUOTE
-&kp LSHIFT  &kp Z   &kp X   &mkp MB4        &mkp MB5        &msc SCRL_DOWN  &msc SCRL_RIGHT    &trans  &trans  &trans  &trans    &msc SCRL_RIGHT  &msc SCRL_DOWN  &mkp MB4        &mkp MB5        &kp PERIOD  &kp SLASH      &lt LOWER BACKSLASH
-&trans              &trans                          &trans          &trans          &trans          &trans                                               &trans           &trans                                                                                     &trans
-            >;
-        };
-
-        /* ---------------- Lower layer ---------------- */
+        // Lower layer
         lower_layer {
             display-name = "Lower Layer";
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -241,7 +229,7 @@
             >;
         };
 
-        /* ---------------- Raise layer ---------------- */
+        // Raise layer
         raise_layer {
             display-name = "Raise Layer";
             sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
@@ -251,6 +239,20 @@
 &trans  &none  &none  &mkp RCLK            &mkp LCLK            &msc SCRL_UP    &msc SCRL_LEFT     &trans  &trans  &trans  &trans    &kp PG_UP  &kp HOME  &none     &kp UP    &none      &none  &none
 &trans  &none  &none  &mkp MB4             &mkp MB5             &msc SCRL_DOWN  &msc SCRL_RIGHT    &trans  &trans  &trans  &trans    &kp PG_DN  &kp END   &kp LEFT  &kp DOWN  &kp RIGHT  &none  &none
 &trans  &none         &kp INTERNATIONAL_5  &kp INTERNATIONAL_4  &trans          &trans                                               &trans     &kp DEL                                         &none
+            >;
+        };
+
+
+        // Etc layer
+        mouse_layer {
+            display-name = "Mouse";
+            sensor-bindings = <&scroll_down_up>;
+            bindings = <
+&kp ESC     &kp N1  &kp N2  &kp N3  &kp N4  &kp N5                     &trans  &trans  &trans  &trans                     &kp N6  &kp N7  &kp N8  &kp N9      &kp N0         &kp MINUS
+&kp TAB     &kp Q   &kp W   &kp E   &kp R   &kp T                      &trans  &trans  &trans  &trans                     &kp Y   &kp U   &kp I   &kp O       &kp P          &kp EQUAL
+&kp CAPS    &kp A   &mkp RCLK       &mkp MCLK       &mkp LCLK       &msc SCRL_UP    &msc SCRL_LEFT     &trans  &trans  &trans  &trans    &msc SCRL_LEFT   &msc SCRL_UP    &mkp LCLK       &mkp MCLK       &mkp RCLK           &kp SEMICOLON  &kp SINGLE_QUOTE
+&kp LSHIFT  &kp Z   &kp X   &mkp MB4        &mkp MB5        &msc SCRL_DOWN  &msc SCRL_RIGHT    &trans  &trans  &trans  &trans    &msc SCRL_RIGHT  &msc SCRL_DOWN  &mkp MB4        &mkp MB5        &kp PERIOD  &kp SLASH      &lt LOWER BACKSLASH
+&trans              &trans                          &trans          &trans          &trans          &trans                                               &trans           &trans                                                                                     &trans
             >;
         };
 
