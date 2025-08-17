@@ -87,7 +87,7 @@
 //            #binding-cells = <0>;
 //            tapping-term-ms = <200>;
 //            bindings = <&mt RCTL LANG1>, <&mo RAISE>, <&mo MOUSE>;
-        };
+//        };
 
         // Customed Hold-Tap for SandS
 
