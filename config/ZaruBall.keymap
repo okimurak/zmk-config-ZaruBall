@@ -14,8 +14,8 @@
 #define IPAD_BASE  2
 #define MOUSE      3
 #define LOWER      4
-#define RAISE      5
-#define ADJUST     6
+#define RAISE      7
+#define ADJUST     8
 
 // スクロール量の設定
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
@@ -226,11 +226,5 @@
 &trans  &kp C_MUTE         &trans  &trans        &trans        &trans                                      &trans    &kp DEL                                     &trans
             >;
         };
-
-        // Extra layer can be added in ZMK STUDIO
-
-        extra1 { status = "reserved"; };
-
-        extra2 { status = "reserved"; };
     };
 };
