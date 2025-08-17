@@ -9,18 +9,16 @@
 #include <dt-bindings/zmk/pointing.h>
 
 #define WIN_BASE     0
-#define WIN_MOUSE    1
-#define WIN_LOWER    2
-#define WIN_RAISE    3
-#define MAC_BASE     4
-#define MAC_MOUSE    5
+#define MAC_BASE     1
+#define IPAD_BASE    2
+#define WIN_MOUSE    3
+#define WIN_LOWER    4
+#define WIN_RAISE    5
 #define MAC_LOWER    6
 #define MAC_RAISE    7
-#define IPAD_BASE    8
-#define IPAD_MOUSE   9
-#define IPAD_LOWER   10
-#define IPAD_RAISE   11
-#define ADJUST   12
+#define IPAD_LOWER   8
+#define IPAD_RAISE   9
+#define ADJUST   10
 
 // スクロール量の設定
 
