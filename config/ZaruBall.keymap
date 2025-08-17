@@ -43,7 +43,7 @@
             then-layer = <ADJUST>;
         };
 
-        win_tri_layer {
+        ipad_tri_layer {
             if-layers = <IPAD_LOWER IPAD_RAISE>;
             then-layer = <ADJUST>;
         };
