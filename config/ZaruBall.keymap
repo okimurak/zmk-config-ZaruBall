@@ -65,7 +65,7 @@
         //            tapping-term-ms = <200>;
         //            bindings = <&mt LALT LANG2>, <&mo RAISE>, <&mo MOUSE>;
         //        };
-        //        kp: tap_dance_1 {
+        //        td1: tap_dance_1 {
         //            compatible = "zmk,behavior-tap-dance";
         //            #binding-cells = <0>;
         //            tapping-term-ms = <200>;
