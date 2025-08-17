@@ -12,15 +12,15 @@
 #define WIN_MOUSE    1
 #define WIN_LOWER    2
 #define WIN_RAISE    3
-#define MAC_BASE     5
-#define MAC_MOUSE    6
-#define MAC_LOWER    7
-#define MAC_RAISE    8
-#define IPAD_BASE    9
-#define IPAD_MOUSE   10
-#define IPAD_LOWER   11
-#define IPAD_RAISE   12
-#define ADJUST   20
+#define MAC_BASE     4
+#define MAC_MOUSE    5
+#define MAC_LOWER    6
+#define MAC_RAISE    7
+#define IPAD_BASE    8
+#define IPAD_MOUSE   9
+#define IPAD_LOWER   10
+#define IPAD_RAISE   11
+#define ADJUST   12
 
 // スクロール量の設定
 
