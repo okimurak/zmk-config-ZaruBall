@@ -145,7 +145,7 @@
                 <&tog_on IPAD_BASE>;
 
             label = "BT2";
-            wait-ms = <200>
+            wait-ms = <200>;
         };
     };
 };
