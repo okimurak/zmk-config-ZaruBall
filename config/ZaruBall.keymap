@@ -2,12 +2,12 @@
 
 #include <behaviors/rgbled_widget.dtsi>
 #include <behaviors/naginata.dtsi>
+#include <input/processors.dtsi>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
-#include <input/processors.dtsi>
 
 #define WIN_BASE   0
 #define MAC_BASE   1
@@ -18,12 +18,12 @@
 #define ADJUST     6
 
 // スクロール量の設定
+
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 
 // マウスレイヤーに留まる設定
-&mkp_input_listener {
-    input-processors = <&zip_temp_layer MOUSE 250>;
-};
+
+&mkp_input_listener { input-processors = <&zip_temp_layer MOUSE 250>; };
 
 / {
     conditional_layers {
@@ -137,19 +137,42 @@
 };
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        select_bt0 {
+            bindings = <&bt0>;
+            key-positions = <17 18 19 20>;
+            layers = <0 1 2>;
+        };
+
+        select_bt1 {
+            bindings = <&bt1>;
+            key-positions = <33 34 35 36>;
+            layers = <0 2 1>;
+        };
+
+        select_bt2 {
+            bindings = <&bt2>;
+            key-positions = <51 52 53 54>;
+            layers = <0 2 1>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         /* ---------------- Base layer ---------------- */
+
         win_base {
             display-name = "Windows Base";
             sensor-bindings = <&scroll_down_up>;
             bindings = <
-&kp GRAVE  &kp N1      &kp N2  &kp N3    &kp N4        &kp N5                                    &kp KP_N7     &kp KP_N8  &kp KP_N9   &kp KP_DIVIDE                         &kp NUMBER_6  &kp N7  &kp N8     &kp N9   &kp N0    &kp MINUS
-&kp TAB    &kp Q       &kp W   &kp E     &kp R         &kp T                                     &kp KP_N4     &kp KP_N5  &kp KP_N6   &kp KP_MULTIPLY                       &kp Y         &kp U   &kp I      &kp O    &kp P     &kp EQUAL
-&kp CAPS   &kp A       &kp S   &kp D     &kp F         &kp G                    &kp INS          &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp RIGHT_BRACKET  &kp H         &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z       &kp X   &kp C     &kp V         &kp B                    &kp DELETE       &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp BACKSLASH      &kp N         &kp M   &kp COMMA  &kp DOT  &kp FSLH  &lt LOWER BACKSLASH
-&kp LCTRL  &kp C_MUTE          &kp LWIN  &kp LEFT_ALT  &SandS LEFT_SHIFT SPACE  &mo LOWER                                                            &lt RAISE RET  &kp BSPC                                            &kp RCTRL
+&kp GRAVE  &kp N1      &kp N2  &kp N3    &kp N4        &kp N5                                 &kp KP_N7     &kp KP_N8  &kp KP_N9   &kp KP_DIVIDE                         &kp NUMBER_6  &kp N7  &kp N8     &kp N9   &kp N0    &kp MINUS
+&kp TAB    &kp Q       &kp W   &kp E     &kp R         &kp T                                  &kp KP_N4     &kp KP_N5  &kp KP_N6   &kp KP_MULTIPLY                       &kp Y         &kp U   &kp I      &kp O    &kp P     &kp EQUAL
+&kp CAPS   &kp A       &kp S   &kp D     &kp F         &kp G                    &kp INS       &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp RIGHT_BRACKET  &kp H         &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LSHFT  &kp Z       &kp X   &kp C     &kp V         &kp B                    &kp DELETE    &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp BACKSLASH      &kp N         &kp M   &kp COMMA  &kp DOT  &kp FSLH  &lt LOWER BACKSLASH
+&kp LCTRL  &kp C_MUTE          &kp LWIN  &kp LEFT_ALT  &SandS LEFT_SHIFT SPACE  &mo LOWER                                                             &lt RAISE RET      &kp BSPC                                            &kp RCTRL
             >;
         };
 
@@ -157,11 +180,11 @@
             display-name = "Mac Base";
             sensor-bindings = <&scroll_down_up>;
             bindings = <
-&kp GRAVE         &kp N1      &kp N2  &kp N3            &kp N4        &kp N5                                    &kp KP_N7     &kp KP_N8  &kp KP_N9   &kp KP_DIVIDE                         &kp NUMBER_6  &kp N7  &kp N8     &kp N9   &kp N0    &kp MINUS
-&kp TAB           &kp Q       &kp W   &kp E             &kp R         &kp T                                     &kp KP_N4     &kp KP_N5  &kp KP_N6   &kp KP_MULTIPLY                       &kp Y         &kp U   &kp I      &kp O    &kp P     &kp EQUAL
-&kp CAPS          &kp A       &kp S   &kp D             &kp F         &kp G                    &kp INS          &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp RIGHT_BRACKET  &kp H         &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LSHFT         &kp Z       &kp X   &kp C             &kp V         &kp B                    &kp DELETE       &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp BACKSLASH      &kp N         &kp M   &kp COMMA  &kp DOT  &kp FSLH  &lt LOWER BACKSLASH
-&kp LEFT_COMMAND  &kp C_MUTE          &kp LEFT_CONTROL  &kp LEFT_ALT  &SandS LEFT_SHIFT SPACE  &mo LOWER                                                            &lt RAISE RET  &kp BSPC                                            &kp RCTRL
+&kp GRAVE         &kp N1      &kp N2  &kp N3            &kp N4        &kp N5                                 &kp KP_N7     &kp KP_N8  &kp KP_N9   &kp KP_DIVIDE                         &kp NUMBER_6  &kp N7  &kp N8     &kp N9   &kp N0    &kp MINUS
+&kp TAB           &kp Q       &kp W   &kp E             &kp R         &kp T                                  &kp KP_N4     &kp KP_N5  &kp KP_N6   &kp KP_MULTIPLY                       &kp Y         &kp U   &kp I      &kp O    &kp P     &kp EQUAL
+&kp CAPS          &kp A       &kp S   &kp D             &kp F         &kp G                    &kp INS       &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp RIGHT_BRACKET  &kp H         &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LSHFT         &kp Z       &kp X   &kp C             &kp V         &kp B                    &kp DELETE    &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp BACKSLASH      &kp N         &kp M   &kp COMMA  &kp DOT  &kp FSLH  &lt LOWER BACKSLASH
+&kp LEFT_COMMAND  &kp C_MUTE          &kp LEFT_CONTROL  &kp LEFT_ALT  &SandS LEFT_SHIFT SPACE  &mo LOWER                                                             &lt RAISE RET      &kp BSPC                                            &kp RCTRL
             >;
         };
 
@@ -169,11 +192,11 @@
             display-name = "iPad Base";
             sensor-bindings = <&scroll_down_up>;
             bindings = <
-&kp GRAVE         &kp N1      &kp N2  &kp N3            &kp N4        &kp N5                                     &kp KP_N7     &kp KP_N8  &kp KP_N9   &kp KP_DIVIDE                          &kp NUMBER_6  &kp N7  &kp N8     &kp N9   &kp N0    &kp MINUS
-&kp TAB           &kp Q       &kp W   &kp E             &kp R         &kp T                                      &kp KP_N4     &kp KP_N5  &kp KP_N6   &kp KP_MULTIPLY                        &kp Y         &kp U   &kp I      &kp O    &kp P     &kp EQUAL
-&kp CAPS          &kp A       &kp S   &kp D             &kp F         &kp G                    &kp INS           &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp RIGHT_BRACKET   &kp H         &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LSHFT         &kp Z       &kp X   &kp C             &kp V         &kp B                    &kp DELETE        &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp BACKSLASH       &kp N         &kp M   &kp COMMA  &kp DOT  &kp FSLH  &lt LOWER BACKSLASH
-&kp LEFT_COMMAND  &kp C_MUTE          &kp LEFT_CONTROL  &kp LEFT_ALT  &SandS LEFT_SHIFT SPACE  &mo LOWER                                                            &lt RAISE RET  &kp BSPC                                            &kp RCTRL
+&kp GRAVE         &kp N1      &kp N2  &kp N3            &kp N4        &kp N5                                 &kp KP_N7     &kp KP_N8  &kp KP_N9   &kp KP_DIVIDE                         &kp NUMBER_6  &kp N7  &kp N8     &kp N9   &kp N0    &kp MINUS
+&kp TAB           &kp Q       &kp W   &kp E             &kp R         &kp T                                  &kp KP_N4     &kp KP_N5  &kp KP_N6   &kp KP_MULTIPLY                       &kp Y         &kp U   &kp I      &kp O    &kp P     &kp EQUAL
+&kp CAPS          &kp A       &kp S   &kp D             &kp F         &kp G                    &kp INS       &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp RIGHT_BRACKET  &kp H         &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LSHFT         &kp Z       &kp X   &kp C             &kp V         &kp B                    &kp DELETE    &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp BACKSLASH      &kp N         &kp M   &kp COMMA  &kp DOT  &kp FSLH  &lt LOWER BACKSLASH
+&kp LEFT_COMMAND  &kp C_MUTE          &kp LEFT_CONTROL  &kp LEFT_ALT  &SandS LEFT_SHIFT SPACE  &mo LOWER                                                             &lt RAISE RET      &kp BSPC                                            &kp RCTRL
             >;
         };
 
@@ -181,15 +204,16 @@
             display-name = "Mouse";
             sensor-bindings = <&scroll_down_up>;
             bindings = <
-&kp ESC     &kp N1  &kp N2  &kp N3  &kp N4  &kp N5                     &trans  &trans  &trans  &trans                     &kp N6  &kp N7  &kp N8  &kp N9      &kp N0         &kp MINUS
-&kp TAB     &kp Q   &kp W   &kp E   &kp R   &kp T                      &trans  &trans  &trans  &trans                     &kp Y   &kp U   &kp I   &kp O       &kp P          &kp EQUAL
-&kp CAPS    &kp A   &mkp RCLK       &mkp MCLK       &mkp LCLK       &msc SCRL_UP    &msc SCRL_LEFT     &trans  &trans  &trans  &trans    &msc SCRL_LEFT   &msc SCRL_UP    &mkp LCLK       &mkp MCLK       &mkp RCLK           &kp SEMICOLON  &kp SINGLE_QUOTE
-&kp LSHIFT  &kp Z   &kp X   &mkp MB4        &mkp MB5        &msc SCRL_DOWN  &msc SCRL_RIGHT    &trans  &trans  &trans  &trans    &msc SCRL_RIGHT  &msc SCRL_DOWN  &mkp MB4        &mkp MB5        &kp PERIOD  &kp SLASH      &lt LOWER BACKSLASH
-&trans              &trans                          &trans          &trans          &trans          &trans                                               &trans           &trans                                                                                     &trans
+&kp ESC     &kp N1  &kp N2     &kp N3     &kp N4     &kp N5                             &trans  &trans  &trans  &trans                     &kp N6          &kp N7     &kp N8     &kp N9      &kp N0         &kp MINUS
+&kp TAB     &kp Q   &kp W      &kp E      &kp R      &kp T                              &trans  &trans  &trans  &trans                     &kp Y           &kp U      &kp I      &kp O       &kp P          &kp EQUAL
+&kp CAPS    &kp A   &mkp RCLK  &mkp MCLK  &mkp LCLK  &msc SCRL_UP    &msc SCRL_LEFT     &trans  &trans  &trans  &trans    &msc SCRL_LEFT   &msc SCRL_UP    &mkp LCLK  &mkp MCLK  &mkp RCLK   &kp SEMICOLON  &kp SINGLE_QUOTE
+&kp LSHIFT  &kp Z   &kp X      &mkp MB4   &mkp MB5   &msc SCRL_DOWN  &msc SCRL_RIGHT    &trans  &trans  &trans  &trans    &msc SCRL_RIGHT  &msc SCRL_DOWN  &mkp MB4   &mkp MB5   &kp PERIOD  &kp SLASH      &lt LOWER BACKSLASH
+&trans      &trans             &trans     &trans     &trans          &trans                                               &trans           &trans                                                           &trans
             >;
         };
 
         /* ---------------- Lower layer ---------------- */
+
         lower_layer {
             display-name = "Lower Layer";
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -203,6 +227,7 @@
         };
 
         /* ---------------- Raise layer ---------------- */
+
         raise_layer {
             display-name = "Raise Layer";
             sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
