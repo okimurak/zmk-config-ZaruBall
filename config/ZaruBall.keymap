@@ -9,18 +9,16 @@
 #include <dt-bindings/zmk/pointing.h>
 
 #define WIN_BASE     0
-#define WIN_MOUSE    1
+#define MOUSE        1
 #define WIN_LOWER    2
 #define WIN_RAISE    3
 #define MAC_BASE     4
-#define MAC_MOUSE    5
-#define MAC_LOWER    6
-#define MAC_RAISE    7
-#define IPAD_BASE    8
-#define IPAD_MOUSE   9
-#define IPAD_LOWER   10
-#define IPAD_RAISE   11
-#define ADJUST   12
+#define MAC_LOWER    5
+#define MAC_RAISE    6
+#define IPAD_BASE    7
+#define IPAD_LOWER   8
+#define IPAD_RAISE   9
+#define ADJUST       10
 
 // スクロール量の設定
 
@@ -110,7 +108,7 @@
         to_layer_0: to_layer_0 {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
-            bindings = <&tog WIN_MOUSE &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+            bindings = <&tog MOUSE &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "TO_layer_0";
         };
 
@@ -126,7 +124,7 @@
                 <&macro_release>,
                 <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>,
                 <&macro_tap>,
-                <&sl WIN_MOUSE>;
+                <&sl MOUSE>;
 
             label = "MKP_EXIT_AML";
         };
@@ -179,7 +177,6 @@
         compatible = "zmk,keymap";
 
         /* ---------------- Windows ---------------- */
-
         win_base {
             display-name = "Windows Base";
             sensor-bindings = <&scroll_down_up>;
@@ -189,18 +186,6 @@
 &kp CAPS   &kp A       &kp S   &kp D     &kp F         &kp G                    &kp INS          &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp RIGHT_BRACKET  &kp H         &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
 &kp LSHFT  &kp Z       &kp X   &kp C     &kp V         &kp B                    &kp DELETE       &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp BACKSLASH      &kp N         &kp M   &kp COMMA  &kp DOT  &kp FSLH  &lt WIN_LOWER BACKSLASH
 &kp LCTRL  &kp C_MUTE          &kp LWIN  &kp LEFT_ALT  &SandS LEFT_SHIFT SPACE  &mo WIN_LOWER                                                            &lt WIN_RAISE RET  &kp BSPC                                            &kp RCTRL
-            >;
-        };
-
-        win_mouse {
-            display-name = "Windows Mouse";
-            sensor-bindings = <&scroll_down_up>;
-            bindings = <
-&to_layer_0 ESC     &to_layer_0 N1  &to_layer_0 N2  &to_layer_0 N3  &to_layer_0 N4  &to_layer_0 N5                     &trans  &trans  &trans  &trans                     &to_layer_0 N6  &to_layer_0 N7  &to_layer_0 N8  &to_layer_0 N9      &to_layer_0 N0         &to_layer_0 MINUS
-&to_layer_0 TAB     &to_layer_0 Q   &to_layer_0 W   &to_layer_0 E   &to_layer_0 R   &to_layer_0 T                      &trans  &trans  &trans  &trans                     &to_layer_0 Y   &to_layer_0 U   &to_layer_0 I   &to_layer_0 O       &to_layer_0 P          &to_layer_0 EQUAL
-&to_layer_0 CAPS    &to_layer_0 A   &mkp RCLK       &mkp MCLK       &mkp LCLK       &msc SCRL_UP    &msc SCRL_LEFT     &trans  &trans  &trans  &trans    &msc SCRL_LEFT   &msc SCRL_UP    &mkp LCLK       &mkp MCLK       &mkp RCLK           &to_layer_0 SEMICOLON  &to_layer_0 SINGLE_QUOTE
-&to_layer_0 LSHIFT  &to_layer_0 Z   &to_layer_0 X   &mkp MB4        &mkp MB5        &msc SCRL_DOWN  &msc SCRL_RIGHT    &trans  &trans  &trans  &trans    &msc SCRL_RIGHT  &msc SCRL_DOWN  &mkp MB4        &mkp MB5        &to_layer_0 PERIOD  &to_layer_0 SLASH      &lt WIN_LOWER BACKSLASH
-&trans              &trans                          &trans          &trans          &trans          &trans                                               &trans           &trans                                                                                     &trans
             >;
         };
 
@@ -229,7 +214,6 @@
         };
 
         /* ---------------- Mac ---------------- */
-
         mac_base {
             display-name = "Mac Base";
             sensor-bindings = <&scroll_down_up>;
@@ -239,18 +223,6 @@
 &kp CAPS          &kp A       &kp S   &kp D             &kp F         &kp G                    &kp INS          &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp RIGHT_BRACKET  &kp H         &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
 &kp LSHFT         &kp Z       &kp X   &kp C             &kp V         &kp B                    &kp DELETE       &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp BACKSLASH      &kp N         &kp M   &kp COMMA  &kp DOT  &kp FSLH  &lt MAC_LOWER BACKSLASH
 &kp LEFT_COMMAND  &kp C_MUTE          &kp LEFT_CONTROL  &kp LEFT_ALT  &SandS LEFT_SHIFT SPACE  &mo MAC_LOWER                                                            &lt MAC_RAISE RET  &kp BSPC                                            &kp RCTRL
-            >;
-        };
-
-        mac_mouse {
-            display-name = "Mac Mouse";
-            sensor-bindings = <&scroll_down_up>;
-            bindings = <
-&to_layer_0 ESC     &to_layer_0 N1  &to_layer_0 N2  &to_layer_0 N3  &to_layer_0 N4  &to_layer_0 N5                     &trans  &trans  &trans  &trans                     &to_layer_0 N6  &to_layer_0 N7  &to_layer_0 N8  &to_layer_0 N9      &to_layer_0 N0         &to_layer_0 MINUS
-&to_layer_0 TAB     &to_layer_0 Q   &to_layer_0 W   &to_layer_0 E   &to_layer_0 R   &to_layer_0 T                      &trans  &trans  &trans  &trans                     &to_layer_0 Y   &to_layer_0 U   &to_layer_0 I   &to_layer_0 O       &to_layer_0 P          &to_layer_0 EQUAL
-&to_layer_0 CAPS    &to_layer_0 A   &mkp RCLK       &mkp MCLK       &mkp LCLK       &msc SCRL_UP    &msc SCRL_LEFT     &trans  &trans  &trans  &trans    &msc SCRL_LEFT   &msc SCRL_UP    &mkp LCLK       &mkp MCLK       &mkp RCLK           &to_layer_0 SEMICOLON  &to_layer_0 SINGLE_QUOTE
-&to_layer_0 LSHIFT  &to_layer_0 Z   &to_layer_0 X   &mkp MB4        &mkp MB5        &msc SCRL_DOWN  &msc SCRL_RIGHT    &trans  &trans  &trans  &trans    &msc SCRL_RIGHT  &msc SCRL_DOWN  &mkp MB4        &mkp MB5        &to_layer_0 PERIOD  &to_layer_0 SLASH      &lt MAC_LOWER BACKSLASH
-&trans              &trans                          &trans          &trans          &trans          &trans                                               &trans           &trans                                                                                     &trans
             >;
         };
 
@@ -278,7 +250,6 @@
         };
 
         /* ---------------- iPad ---------------- */
-
         ipad_base {
             display-name = "iPad Base";
             sensor-bindings = <&scroll_down_up>;
@@ -288,18 +259,6 @@
 &kp CAPS          &kp A       &kp S   &kp D             &kp F         &kp G                    &kp INS           &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp RIGHT_BRACKET   &kp H         &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
 &kp LSHFT         &kp Z       &kp X   &kp C             &kp V         &kp B                    &kp DELETE        &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp BACKSLASH       &kp N         &kp M   &kp COMMA  &kp DOT  &kp FSLH  &lt IPAD_LOWER BACKSLASH
 &kp LEFT_COMMAND  &kp C_MUTE          &kp LEFT_CONTROL  &kp LEFT_ALT  &SandS LEFT_SHIFT SPACE  &mo IPAD_LOWER                                                            &lt IPAD_RAISE RET  &kp BSPC                                            &kp RCTRL
-            >;
-        };
-
-        ipad_mouse {
-            display-name = "iPad Mouse";
-            sensor-bindings = <&scroll_down_up>;
-            bindings = <
-&to_layer_0 ESC     &to_layer_0 N1  &to_layer_0 N2  &to_layer_0 N3  &to_layer_0 N4  &to_layer_0 N5                     &trans  &trans  &trans  &trans                     &to_layer_0 N6  &to_layer_0 N7  &to_layer_0 N8  &to_layer_0 N9      &to_layer_0 N0         &to_layer_0 MINUS
-&to_layer_0 TAB     &to_layer_0 Q   &to_layer_0 W   &to_layer_0 E   &to_layer_0 R   &to_layer_0 T                      &trans  &trans  &trans  &trans                     &to_layer_0 Y   &to_layer_0 U   &to_layer_0 I   &to_layer_0 O       &to_layer_0 P          &to_layer_0 EQUAL
-&to_layer_0 CAPS    &to_layer_0 A   &mkp RCLK       &mkp MCLK       &mkp LCLK       &msc SCRL_UP    &msc SCRL_LEFT     &trans  &trans  &trans  &trans    &msc SCRL_LEFT   &msc SCRL_UP    &mkp LCLK       &mkp MCLK       &mkp RCLK           &to_layer_0 SEMICOLON  &to_layer_0 SINGLE_QUOTE
-&to_layer_0 LSHIFT  &to_layer_0 Z   &to_layer_0 X   &mkp MB4        &mkp MB5        &msc SCRL_DOWN  &msc SCRL_RIGHT    &trans  &trans  &trans  &trans    &msc SCRL_RIGHT  &msc SCRL_DOWN  &mkp MB4        &mkp MB5        &to_layer_0 PERIOD  &to_layer_0 SLASH      &lt IPAD_LOWER BACKSLASH
-&trans              &trans                          &trans          &trans          &trans          &trans                                               &trans           &trans                                                                                     &trans
             >;
         };
 
@@ -324,6 +283,18 @@
 &trans  &none  &none  &mkp RCLK            &mkp LCLK            &msc SCRL_UP    &msc SCRL_LEFT     &trans  &trans  &trans  &trans    &kp PG_UP  &kp HOME  &none     &kp UP    &none      &none  &none
 &trans  &none  &none  &mkp MB4             &mkp MB5             &msc SCRL_DOWN  &msc SCRL_RIGHT    &trans  &trans  &trans  &trans    &kp PG_DN  &kp END   &kp LEFT  &kp DOWN  &kp RIGHT  &none  &none
 &trans  &none         &kp INTERNATIONAL_5  &kp INTERNATIONAL_4  &trans          &trans                                               &trans     &kp DEL                                         &none
+            >;
+        };
+
+        mouse_layer {
+            display-name = "Mouse";
+            sensor-bindings = <&scroll_down_up>;
+            bindings = <
+&to_layer_0 ESC     &to_layer_0 N1  &to_layer_0 N2  &to_layer_0 N3  &to_layer_0 N4  &to_layer_0 N5                     &trans  &trans  &trans  &trans                     &to_layer_0 N6  &to_layer_0 N7  &to_layer_0 N8  &to_layer_0 N9      &to_layer_0 N0         &to_layer_0 MINUS
+&to_layer_0 TAB     &to_layer_0 Q   &to_layer_0 W   &to_layer_0 E   &to_layer_0 R   &to_layer_0 T                      &trans  &trans  &trans  &trans                     &to_layer_0 Y   &to_layer_0 U   &to_layer_0 I   &to_layer_0 O       &to_layer_0 P          &to_layer_0 EQUAL
+&to_layer_0 CAPS    &to_layer_0 A   &mkp RCLK       &mkp MCLK       &mkp LCLK       &msc SCRL_UP    &msc SCRL_LEFT     &trans  &trans  &trans  &trans    &msc SCRL_LEFT   &msc SCRL_UP    &mkp LCLK       &mkp MCLK       &mkp RCLK           &to_layer_0 SEMICOLON  &to_layer_0 SINGLE_QUOTE
+&to_layer_0 LSHIFT  &to_layer_0 Z   &to_layer_0 X   &mkp MB4        &mkp MB5        &msc SCRL_DOWN  &msc SCRL_RIGHT    &trans  &trans  &trans  &trans    &msc SCRL_RIGHT  &msc SCRL_DOWN  &mkp MB4        &mkp MB5        &to_layer_0 PERIOD  &to_layer_0 SLASH      &lt WIN_LOWER BACKSLASH
+&trans              &trans                          &trans          &trans          &trans          &trans                                               &trans           &trans                                                                                     &trans
             >;
         };
 
