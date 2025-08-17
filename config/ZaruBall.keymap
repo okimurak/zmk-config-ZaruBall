@@ -30,22 +30,6 @@
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
-        // Bluetooth プロファイル切替時に Base を切り替え
-        win_base_layer {
-            if-bt-profile = <0>;    // BT0
-            then-layer = <WIN_BASE>;
-        };
-
-        mac_base_layer {
-            if-bt-profile = <1>;    // BT1
-            then-layer = <MAC_BASE>;
-        };
-
-        ipad_base_layer {
-            if-bt-profile = <2>;    // BT2
-            then-layer = <IPAD_BASE>;
-        };
-
         win_tri_layer {
             if-layers = <WIN_LOWER WIN_RAISE>;
             then-layer = <ADJUST>;
@@ -100,6 +84,22 @@
             bindings = <&kp>, <&kp>;
 
             display-name = "SandS";
+        };
+
+
+        // Ref: https://zenn.dev/shakupan/articles/261ce435251607
+        tog_on: toggle_layer_on_only {
+            compatible = "zmk,behavior-toggle-layer";
+            #binding-cells = <1>;
+            display-name = "Toggle Layer On";
+            toggle-mode = "on";
+        };
+
+        tog_off: toggle_layer_off_only {
+            compatible = "zmk,behavior-toggle-layer";
+            #binding-cells = <1>;
+            display-name = "Toggle Layer Off";
+            toggle-mode = "off";
         };
     };
 };
