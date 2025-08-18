@@ -126,9 +126,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&bt BT_SEL 0>,
-                <&macro_wait_time 500>,
-                <&to WIN_BASE>;
+                <&tog_off MAC_BASE &tog_off IPAD_BASE>,
+                <&macro_wait_time 200>,
+                <&bt BT_SEL 0>;
 
             label = "BT0";
             wait-ms = <200>;
