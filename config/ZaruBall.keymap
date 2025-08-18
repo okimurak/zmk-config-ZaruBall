@@ -197,28 +197,6 @@ CONFIG_LAYOUT_SHIFT_TARGET_JIS=y
 };
 
 / {
-    combos {
-        compatible = "zmk,combos";
-
-        select_bt0 {
-            bindings = <&bt0>;
-            key-positions = <17 18 19 20>;
-            layers = <WIN_BASE MAC_BASE IPAD_BASE MOUSE>;
-        };
-
-        select_bt1 {
-            bindings = <&bt1>;
-            key-positions = <33 34 35 36>;
-            layers = <WIN_BASE MAC_BASE IPAD_BASE MOUSE>;
-        };
-
-        select_bt2 {
-            bindings = <&bt2>;
-            key-positions = <51 52 53 54>;
-            layers = <WIN_BASE MAC_BASE IPAD_BASE MOUSE>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
