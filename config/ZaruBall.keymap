@@ -142,7 +142,7 @@
                 <&tog_off MAC_BASE &tog_off IPAD_BASE>,
                 <&tog_ls_off>,
                 <&macro_wait_time 200>,
-                <&bt BT_SEL 0>;
+                <&bt BT_SEL 0>,
                 <&tog_ls_on>;
             label = "BT0";
             wait-ms = <200>;
