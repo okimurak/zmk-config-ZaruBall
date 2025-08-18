@@ -209,7 +209,7 @@
 &trans  &trans  &trans     &trans     &trans     &trans                             &trans  &trans  &trans  &trans                     &trans          &trans     &trans     &trans     &trans  &trans
 &trans  &trans  &trans     &trans     &trans     &trans                             &trans  &trans  &trans  &trans                     &trans          &trans     &trans     &trans     &trans  &trans
 &trans  &trans  &mkp RCLK  &mkp MCLK  &mkp LCLK  &msc SCRL_UP    &msc SCRL_LEFT     &trans  &trans  &trans  &trans    &msc SCRL_LEFT   &msc SCRL_UP    &mkp LCLK  &mkp MCLK  &mkp RCLK  &trans  &trans
-&trans  &trans  &trans     &mkp MB4   &mkp MB5   &msc SCRL_DOWN  &msc SCRL_RIGHT    &trans  &trans  &trans  &trans    &msc SCRL_RIGHT  &msc SCRL_DOWN  &mkp MB4   &mkp MB5   &trans     &trans  &lt LOWER BACKSLASH
+&trans  &trans  &trans     &mkp MB4   &mkp MB5   &msc SCRL_DOWN  &msc SCRL_RIGHT    &trans  &trans  &trans  &trans    &msc SCRL_RIGHT  &msc SCRL_DOWN  &mkp MB4   &mkp MB5   &trans     &trans  &trans
 &trans  &trans             &trans     &trans     &trans          &trans                                               &trans           &trans                                                   &trans
             >;
         };
