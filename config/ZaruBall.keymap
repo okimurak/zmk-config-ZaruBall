@@ -10,16 +10,19 @@
 #include <dt-bindings/zmk/pointing.h>
 
 #define WIN_BASE    0
-#define MOUSE       9
 #define WIN_LOWER   1
 #define WIN_RAISE   2
 #define MAC_BASE    3
 #define MAC_LOWER   4
-#define MAC_RAISE   5
-#define IPAD_BASE   6
-#define IPAD_LOWER  7
-#define IPAD_RAISE  8
-#define ADJUST      10
+#define TEMP1       5
+#define TEMP2       6
+#define TEMP3       7
+#define MAC_RAISE   8
+#define IPAD_BASE   9
+#define IPAD_LOWER  10
+#define IPAD_RAISE  11
+#define MOUSE       12
+#define ADJUST      13
 
 // スクロール量の設定
 
@@ -123,9 +126,11 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
+                <&tog_off MAC_BASE &tog_off IPAD_BASE>,
+                <&macro_wait_time 200>,
                 <&bt BT_SEL 0>,
                 <&macro_wait_time 500>,
-                <&to WIN_BASE>;
+                <&tog_on WIN_BASE>;
 
             label = "BT0";
             wait-ms = <200>;
@@ -135,9 +140,11 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
+                <&tog_off MAC_BASE &tog_off IPAD_BASE>,
+                <&macro_wait_time 200>,
                 <&bt BT_SEL 1>,
                 <&macro_wait_time 500>,
-                <&to MAC_BASE>;
+                <&tog_on MAC_BASE>;
 
             label = "BT1";
             wait-ms = <200>;
@@ -147,9 +154,11 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
+                <&tog_off MAC_BASE &tog_off IPAD_BASE>,
+                <&macro_wait_time 200>,
                 <&bt BT_SEL 2>,
                 <&macro_wait_time 500>,
-                <&to IPAD_BASE>;
+                <&tog_on IPAD_BASE>;
 
             label = "BT2";
             wait-ms = <200>;
@@ -244,6 +253,45 @@
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        temp1_layer {
+            display-name = "temp1";
+            bindings = <
+&trans  &none        &none   &none    &none  &none            &none  &none  &none  &none              &none  &none  &none  &none  &none  &none
+&trans  &none       &none  &none   &none         &none                   &none  &none  &none  &none              &none      &none  &none  &none  &none  &none
+&trans  &none       &none  &none   &none         &none         &none     &none  &none  &none  &none    &none  &none     &none  &none  &none  &none  &none
+&trans  &none       &none  &none   &none         &none         &none     &none  &none  &none  &none    &none  &none  &none  &none  &none  &none  &none
+&trans  &none         &none  &none        &none        &none                                      &none    &none                                     &none
+            >;
+
+            sensor-bindings = <&scroll_down_up>;
+        };
+
+        temp2_layer {
+            display-name = "temp2";
+            bindings = <
+&trans  &none        &none   &none    &none  &none            &none  &none  &none  &none              &none  &none  &none  &none  &none  &none
+&trans  &none       &none  &none   &none         &none                   &none  &none  &none  &none              &none      &none  &none  &none  &none  &none
+&trans  &none       &none  &none   &none         &none         &none     &none  &none  &none  &none    &none  &none     &none  &none  &none  &none  &none
+&trans  &none       &none  &none   &none         &none         &none     &none  &none  &none  &none    &none  &none  &none  &none  &none  &none  &none
+&trans  &none         &none  &none        &none        &none                                      &none    &none                                     &none
+            >;
+
+            sensor-bindings = <&scroll_down_up>;
+        };
+
+        temp3_layer {
+            display-name = "temp3";
+            bindings = <
+&trans  &none        &none   &none    &none  &none            &none  &none  &none  &none              &none  &none  &none  &none  &none  &none
+&trans  &none       &none  &none   &none         &none                   &none  &none  &none  &none              &none      &none  &none  &none  &none  &none
+&trans  &none       &none  &none   &none         &none         &none     &none  &none  &none  &none    &none  &none     &none  &none  &none  &none  &none
+&trans  &none       &none  &none   &none         &none         &none     &none  &none  &none  &none    &none  &none  &none  &none  &none  &none  &none
+&trans  &none         &none  &none        &none        &none                                      &none    &none                                     &none
+            >;
+
+            sensor-bindings = <&scroll_down_up>;
         };
 
         mac_raise {
