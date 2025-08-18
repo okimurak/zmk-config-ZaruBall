@@ -26,8 +26,8 @@
         compatible = "zmk,conditional-layers";
 
         tri_layer {
-            if-layers = <LOWER RAISE>;
-            then-layer = <ADJUST>;
+            if-layers = <2 5>;
+            then-layer = <6>;
         };
     };
 };
@@ -102,7 +102,7 @@
                 <&macro_release>,
                 <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>,
                 <&macro_tap>,
-                <&sl MOUSE>;
+                <&sl 1>;
 
             label = "MKP_EXIT_AML";
         };
@@ -111,7 +111,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&tog_off MAC_BASE &tog_off IPAD_BASE>,
+                <&tog_off 4 &tog_off 7>,
                 <&macro_wait_time 200>,
                 <&bt BT_SEL 0>,
                 <&macro_wait_time 500>;
@@ -124,11 +124,11 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&tog_off MAC_BASE &tog_off IPAD_BASE>,
+                <&tog_off 4 &tog_off 7>,
                 <&macro_wait_time 200>,
                 <&bt BT_SEL 1>,
                 <&macro_wait_time 500>,
-                <&tog_on MAC_BASE>;
+                <&tog_on 4>;
 
             label = "BT1";
             wait-ms = <200>;
@@ -138,11 +138,11 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&tog_off MAC_BASE &tog_off IPAD_BASE>,
+                <&tog_off 4 &tog_off 7>,
                 <&macro_wait_time 200>,
                 <&bt BT_SEL 2>,
                 <&macro_wait_time 500>,
-                <&tog_on IPAD_BASE>;
+                <&tog_on 7>;
 
             label = "BT2";
             wait-ms = <200>;
@@ -157,19 +157,19 @@
         select_bt0 {
             bindings = <&bt0>;
             key-positions = <17 18 19 20>;
-            layers = <WIN_BASE MAC_BASE IPAD_BASE MOUSE>;
+            layers = <0 4 7 1>;
         };
 
         select_bt1 {
             bindings = <&bt1>;
             key-positions = <33 34 35 36>;
-            layers = <WIN_BASE MAC_BASE IPAD_BASE MOUSE>;
+            layers = <0 4 7 1>;
         };
 
         select_bt2 {
             bindings = <&bt2>;
             key-positions = <51 52 53 54>;
-            layers = <WIN_BASE MAC_BASE IPAD_BASE MOUSE>;
+            layers = <0 4 7 1>;
         };
     };
 
@@ -185,32 +185,8 @@
 &kp GRAVE  &kp N1      &kp N2  &kp N3    &kp N4        &kp N5                                 &kp KP_N7     &kp KP_N8  &kp KP_N9   &kp KP_DIVIDE                         &kp NUMBER_6  &kp N7  &kp N8     &kp N9   &kp N0    &kp MINUS
 &kp TAB    &kp Q       &kp W   &kp E     &kp R         &kp T                                  &kp KP_N4     &kp KP_N5  &kp KP_N6   &kp KP_MULTIPLY                       &kp Y         &kp U   &kp I      &kp O    &kp P     &kp EQUAL
 &kp CAPS   &kp A       &kp S   &kp D     &kp F         &kp G                    &kp INS       &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp RIGHT_BRACKET  &kp H         &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z       &kp X   &kp C     &kp V         &kp B                    &kp DELETE    &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp BACKSLASH      &kp N         &kp M   &kp COMMA  &kp DOT  &kp FSLH  &lt LOWER BACKSLASH
-&kp LCTRL  &kp C_MUTE          &kp LWIN  &kp LEFT_ALT  &SandS LEFT_SHIFT SPACE  &mo LOWER                                                             &lt RAISE RET      &kp BSPC                                            &kp RCTRL
-            >;
-        };
-
-        mac_base {
-            display-name = "Mac Base";
-            sensor-bindings = <&scroll_down_up>;
-            bindings = <
-&kp INT_KANA      &kp N1      &kp N2  &kp N3            &kp N4        &kp N5                                 &kp KP_N7     &kp KP_N8  &kp KP_N9   &kp KP_DIVIDE                         &kp NUMBER_6  &kp N7  &kp N8     &kp N9   &kp N0    &kp MINUS
-&kp TAB           &kp Q       &kp W   &kp E             &kp R         &kp T                                  &kp KP_N4     &kp KP_N5  &kp KP_N6   &kp KP_MULTIPLY                       &kp Y         &kp U   &kp I      &kp O    &kp P     &kp EQUAL
-&kp CAPS          &kp A       &kp S   &kp D             &kp F         &kp G                    &kp INS       &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp RIGHT_BRACKET  &kp H         &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LSHFT         &kp Z       &kp X   &kp C             &kp V         &kp B                    &kp DELETE    &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp BACKSLASH      &kp N         &kp M   &kp COMMA  &kp DOT  &kp FSLH  &lt LOWER BACKSLASH
-&kp LEFT_COMMAND  &kp C_MUTE          &kp LEFT_CONTROL  &kp LEFT_ALT  &SandS LEFT_SHIFT SPACE  &mo LOWER                                                             &lt RAISE RET      &kp BSPC                                            &kp RCTRL
-            >;
-        };
-
-        ipad_base {
-            display-name = "iPad Base";
-            sensor-bindings = <&scroll_down_up>;
-            bindings = <
-&kp INT_KANA      &kp N1      &kp N2  &kp N3            &kp N4        &kp N5                                 &kp KP_N7     &kp KP_N8  &kp KP_N9   &kp KP_DIVIDE                         &kp NUMBER_6  &kp N7  &kp N8     &kp N9   &kp N0    &kp MINUS
-&kp TAB           &kp Q       &kp W   &kp E             &kp R         &kp T                                  &kp KP_N4     &kp KP_N5  &kp KP_N6   &kp KP_MULTIPLY                       &kp Y         &kp U   &kp I      &kp O    &kp P     &kp EQUAL
-&kp CAPS          &kp A       &kp S   &kp D             &kp F         &kp G                    &kp INS       &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp RIGHT_BRACKET  &kp H         &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LSHFT         &kp Z       &kp X   &kp C             &kp V         &kp B                    &kp DELETE    &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp BACKSLASH      &kp N         &kp M   &kp COMMA  &kp DOT  &kp FSLH  &lt LOWER BACKSLASH
-&kp LEFT_COMMAND  &kp C_MUTE          &kp LEFT_CONTROL  &kp LEFT_ALT  &SandS LEFT_SHIFT SPACE  &mo LOWER                                                             &lt RAISE RET      &kp BSPC                                            &kp RCTRL
+&kp LSHFT  &kp Z       &kp X   &kp C     &kp V         &kp B                    &kp DELETE    &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp BACKSLASH      &kp N         &kp M   &kp COMMA  &kp DOT  &kp FSLH  &lt 2 BACKSLASH
+&kp LCTRL  &kp C_MUTE          &kp LWIN  &kp LEFT_ALT  &SandS LEFT_SHIFT SPACE  &mo 2                                                                 &lt 3 RET          &kp BSPC                                            &kp RCTRL
             >;
         };
 
@@ -221,7 +197,7 @@
 &trans  &trans  &trans     &trans     &trans     &trans                             &trans  &trans  &trans  &trans                     &trans          &trans     &trans     &trans     &trans  &trans
 &trans  &trans  &trans     &trans     &trans     &trans                             &trans  &trans  &trans  &trans                     &trans          &trans     &trans     &trans     &trans  &trans
 &trans  &trans  &mkp RCLK  &mkp MCLK  &mkp LCLK  &msc SCRL_UP    &msc SCRL_LEFT     &trans  &trans  &trans  &trans    &msc SCRL_LEFT   &msc SCRL_UP    &mkp LCLK  &mkp MCLK  &mkp RCLK  &trans  &trans
-&trans  &trans  &trans     &mkp MB4   &mkp MB5   &msc SCRL_DOWN  &msc SCRL_RIGHT    &trans  &trans  &trans  &trans    &msc SCRL_RIGHT  &msc SCRL_DOWN  &mkp MB4   &mkp MB5   &trans     &trans  &lt LOWER BACKSLASH
+&trans  &trans  &trans     &mkp MB4   &mkp MB5   &msc SCRL_DOWN  &msc SCRL_RIGHT    &trans  &trans  &trans  &trans    &msc SCRL_RIGHT  &msc SCRL_DOWN  &mkp MB4   &mkp MB5   &trans     &trans  &lt 2 BACKSLASH
 &trans  &trans             &trans     &trans     &trans          &trans                                               &trans           &trans                                                   &trans
             >;
         };
@@ -248,6 +224,82 @@
 &trans  &none  &none  &mkp MB4             &mkp MB5             &msc SCRL_DOWN  &msc SCRL_RIGHT    &trans  &trans  &trans  &trans    &kp PG_DN  &kp END   &kp LEFT  &kp DOWN  &kp RIGHT  &none  &none
 &trans  &none         &kp INTERNATIONAL_5  &kp INTERNATIONAL_4  &trans          &trans                                               &trans     &kp DEL                                         &none
             >;
+        };
+
+        mac_base {
+            display-name = "Mac Base";
+            sensor-bindings = <&scroll_down_up>;
+            bindings = <
+&kp INT_KANA      &kp N1      &kp N2  &kp N3            &kp N4        &kp N5                                 &kp KP_N7     &kp KP_N8  &kp KP_N9   &kp KP_DIVIDE                         &kp NUMBER_6  &kp N7  &kp N8     &kp N9   &kp N0          &kp MINUS
+&kp TAB           &kp Q       &kp W   &kp E             &kp R         &kp T                                  &kp KP_N4     &kp KP_N5  &kp KP_N6   &kp KP_MULTIPLY                       &kp Y         &kp U   &kp I      &kp O    &kp P           &kp EQUAL
+&kp CAPS          &kp A       &kp S   &kp D             &kp F         &kp G                    &kp INS       &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp LEFT_BRACKET   &kp H         &kp J   &kp K      &kp L    &kp APOSTROPHE  &kp SEMI
+&kp LSHFT         &kp Z       &kp X   &kp C             &kp V         &kp B                    &kp DELETE    &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp RIGHT_BRACKET  &kp N         &kp M   &kp COMMA  &kp DOT  &kp FSLH        &lt 5 BACKSLASH
+&kp LEFT_COMMAND  &kp C_MUTE          &kp LEFT_CONTROL  &kp LEFT_ALT  &SandS LEFT_SHIFT SPACE  &mo 5                                                                 &lt 6 RET          &kp BSPC                                                  &kp RCTRL
+            >;
+        };
+
+        mac_lower {
+            display-name = "Lower";
+            bindings = <
+&kp ESC  &kp F1     &kp F2    &kp F3    &kp F4     &kp F5                 &kp KP_NUMLOCK  &trans  &trans  &trans            &kp F6        &kp F7   &kp F8           &kp F9          &kp F10          &trans
+&trans   &trans     &trans    &trans    &trans     &trans                 &trans          &trans  &trans  &trans            &kp F11       &kp F12  &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &trans
+&trans   &trans     &trans    &kp UP    &trans     &kp HOME  &kp PG_UP    &trans          &trans  &trans  &trans    &trans  &kp C_VOL_UP  &trans   &trans           &trans          &trans           &trans
+&trans   &trans     &kp LEFT  &kp DOWN  &kp RIGHT  &kp END   &kp PG_DN    &trans          &trans  &trans  &trans    &trans  &kp C_VOL_DN  &trans   &trans           &trans          &trans           &trans
+&trans   &kp RSHFT            &trans    &trans     &trans    &trans                                                 &trans  &kp DEL                                                                  &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        mac_raise {
+            display-name = "Raise";
+            bindings = <
+&trans  &none  &none  &none                &none                &none                              &trans  &trans  &trans  &trans               &none     &none     &none     &none      &none  &none
+&trans  &none  &none  &none                &none                &none                              &trans  &trans  &trans  &trans               &none     &none     &none     &none      &none  &none
+&trans  &none  &none  &mkp RCLK            &mkp LCLK            &msc SCRL_UP    &msc SCRL_LEFT     &trans  &trans  &trans  &trans    &kp PG_UP  &kp HOME  &none     &kp UP    &none      &none  &none
+&trans  &none  &none  &mkp MB4             &mkp MB5             &msc SCRL_DOWN  &msc SCRL_RIGHT    &trans  &trans  &trans  &trans    &kp PG_DN  &kp END   &kp LEFT  &kp DOWN  &kp RIGHT  &none  &none
+&trans  &none         &kp INTERNATIONAL_5  &kp INTERNATIONAL_4  &trans          &trans                                               &trans     &kp DEL                                         &none
+            >;
+
+            sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
+        };
+
+        ipad_base {
+            display-name = "iPad Base";
+            sensor-bindings = <&scroll_down_up>;
+            bindings = <
+&kp INT_KANA      &kp N1      &kp N2  &kp N3            &kp N4        &kp N5                                 &kp KP_N7     &kp KP_N8  &kp KP_N9   &kp KP_DIVIDE                         &kp NUMBER_6  &kp N7  &kp N8     &kp N9   &kp N0    &kp MINUS
+&kp TAB           &kp Q       &kp W   &kp E             &kp R         &kp T                                  &kp KP_N4     &kp KP_N5  &kp KP_N6   &kp KP_MULTIPLY                       &kp Y         &kp U   &kp I      &kp O    &kp P     &kp EQUAL
+&kp CAPS          &kp A       &kp S   &kp D             &kp F         &kp G                    &kp INS       &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp LEFT_BRACKET   &kp H         &kp J   &kp K      &kp L    &kp APOS  &kp SEMI
+&kp LSHFT         &kp Z       &kp X   &kp C             &kp V         &kp B                    &kp DELETE    &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp RIGHT_BRACKET  &kp N         &kp M   &kp COMMA  &kp DOT  &kp FSLH  &lt 8 BACKSLASH
+&kp LEFT_COMMAND  &kp C_MUTE          &kp LEFT_CONTROL  &kp LEFT_ALT  &SandS LEFT_SHIFT SPACE  &mo 8                                                                 &lt 9 RET          &kp BSPC                                            &kp RCTRL
+            >;
+        };
+
+        ipad_lower {
+            display-name = "Lower";
+            bindings = <
+&kp ESC  &kp F1     &kp F2    &kp F3    &kp F4     &kp F5                 &kp KP_NUMLOCK  &trans  &trans  &trans            &kp F6        &kp F7   &kp F8           &kp F9          &kp F10          &trans
+&trans   &trans     &trans    &trans    &trans     &trans                 &trans          &trans  &trans  &trans            &kp F11       &kp F12  &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &trans
+&trans   &trans     &trans    &kp UP    &trans     &kp HOME  &kp PG_UP    &trans          &trans  &trans  &trans    &trans  &kp C_VOL_UP  &trans   &trans           &trans          &trans           &trans
+&trans   &trans     &kp LEFT  &kp DOWN  &kp RIGHT  &kp END   &kp PG_DN    &trans          &trans  &trans  &trans    &trans  &kp C_VOL_DN  &trans   &trans           &trans          &trans           &trans
+&trans   &kp RSHFT            &trans    &trans     &trans    &trans                                                 &trans  &kp DEL                                                                  &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        ipad_raise {
+            display-name = "Raise";
+            bindings = <
+&trans  &none  &none  &none                &none                &none                              &trans  &trans  &trans  &trans               &none     &none     &none     &none      &none  &none
+&trans  &none  &none  &none                &none                &none                              &trans  &trans  &trans  &trans               &none     &none     &none     &none      &none  &none
+&trans  &none  &none  &mkp RCLK            &mkp LCLK            &msc SCRL_UP    &msc SCRL_LEFT     &trans  &trans  &trans  &trans    &kp PG_UP  &kp HOME  &none     &kp UP    &none      &none  &none
+&trans  &none  &none  &mkp MB4             &mkp MB5             &msc SCRL_DOWN  &msc SCRL_RIGHT    &trans  &trans  &trans  &trans    &kp PG_DN  &kp END   &kp LEFT  &kp DOWN  &kp RIGHT  &none  &none
+&trans  &none         &kp INTERNATIONAL_5  &kp INTERNATIONAL_4  &trans          &trans                                               &trans     &kp DEL                                         &none
+            >;
+
+            sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
         };
 
         adjust_layer {
