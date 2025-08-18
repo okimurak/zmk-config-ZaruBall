@@ -200,8 +200,6 @@ CONFIG_LAYOUT_SHIFT_TARGET_JIS=y
     keymap {
         compatible = "zmk,keymap";
 
-        // Base layer
-
         win_base {
             display-name = "Windows Base";
             sensor-bindings = <&scroll_down_up>;
@@ -263,8 +261,9 @@ CONFIG_LAYOUT_SHIFT_TARGET_JIS=y
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
-        temp1_layer {
-            display-name = "temp1";
+        // For some reason, the 5th and 6th layers don't work, so I put a dummy layer in between.
+        dummy1_layer {
+            display-name = "dummy1";
             bindings = <
 &trans  &none  &none  &none  &none  &none           &none  &none  &none  &none           &none  &none  &none  &none  &none  &none
 &trans  &none  &none  &none  &none  &none           &none  &none  &none  &none           &none  &none  &none  &none  &none  &none
@@ -276,8 +275,8 @@ CONFIG_LAYOUT_SHIFT_TARGET_JIS=y
             sensor-bindings = <&scroll_down_up>;
         };
 
-        temp2_layer {
-            display-name = "temp2";
+        dummy2_layer {
+            display-name = "dummy2";
             bindings = <
 &trans  &none  &none  &none  &none  &none           &none  &none  &none  &none           &none  &none  &none  &none  &none  &none
 &trans  &none  &none  &none  &none  &none           &none  &none  &none  &none           &none  &none  &none  &none  &none  &none
@@ -289,8 +288,8 @@ CONFIG_LAYOUT_SHIFT_TARGET_JIS=y
             sensor-bindings = <&scroll_down_up>;
         };
 
-        temp3_layer {
-            display-name = "temp3";
+        dummy3_layer {
+            display-name = "dummy3";
             bindings = <
 &trans  &none  &none  &none  &none  &none           &none  &none  &none  &none           &none  &none  &none  &none  &none  &none
 &trans  &none  &none  &none  &none  &none           &none  &none  &none  &none           &none  &none  &none  &none  &none  &none
