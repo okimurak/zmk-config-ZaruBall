@@ -18,6 +18,7 @@
 #define ADJUST     8
 
 // スクロール量の設定
+
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 
 / {
@@ -89,7 +90,6 @@
 &sl { release-after-ms = <250>; }; // time needed for double click (for mkp_exit_AML)
 / {
     macros {
-
         // When LCLK pressed, exit AML (after 250ms cause by sticky layer
 
         mkp_exit_AML: mkp_exit_AML {
@@ -177,15 +177,16 @@
         compatible = "zmk,keymap";
 
         // Base layer
+
         win_base {
             display-name = "Windows Base";
             sensor-bindings = <&scroll_down_up>;
             bindings = <
-&kp GRAVE  &kp N1      &kp N2  &kp N3    &kp N4        &kp N5                                    &kp KP_N7     &kp KP_N8  &kp KP_N9   &kp KP_DIVIDE                         &kp NUMBER_6  &kp N7  &kp N8     &kp N9   &kp N0    &kp MINUS
-&kp TAB    &kp Q       &kp W   &kp E     &kp R         &kp T                                     &kp KP_N4     &kp KP_N5  &kp KP_N6   &kp KP_MULTIPLY                       &kp Y         &kp U   &kp I      &kp O    &kp P     &kp EQUAL
-&kp CAPS   &kp A       &kp S   &kp D     &kp F         &kp G                    &kp INS          &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp RIGHT_BRACKET  &kp H         &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z       &kp X   &kp C     &kp V         &kp B                    &kp DELETE       &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp BACKSLASH      &kp N         &kp M   &kp COMMA  &kp DOT  &kp FSLH  &lt LOWER BACKSLASH
-&kp LCTRL  &kp C_MUTE          &kp LWIN  &kp LEFT_ALT  &SandS LEFT_SHIFT SPACE  &mo LOWER                                                            &lt RAISE RET  &kp BSPC                                            &kp RCTRL
+&kp GRAVE  &kp N1      &kp N2  &kp N3    &kp N4        &kp N5                                 &kp KP_N7     &kp KP_N8  &kp KP_N9   &kp KP_DIVIDE                         &kp NUMBER_6  &kp N7  &kp N8     &kp N9   &kp N0    &kp MINUS
+&kp TAB    &kp Q       &kp W   &kp E     &kp R         &kp T                                  &kp KP_N4     &kp KP_N5  &kp KP_N6   &kp KP_MULTIPLY                       &kp Y         &kp U   &kp I      &kp O    &kp P     &kp EQUAL
+&kp CAPS   &kp A       &kp S   &kp D     &kp F         &kp G                    &kp INS       &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp RIGHT_BRACKET  &kp H         &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LSHFT  &kp Z       &kp X   &kp C     &kp V         &kp B                    &kp DELETE    &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp BACKSLASH      &kp N         &kp M   &kp COMMA  &kp DOT  &kp FSLH  &lt LOWER BACKSLASH
+&kp LCTRL  &kp C_MUTE          &kp LWIN  &kp LEFT_ALT  &SandS LEFT_SHIFT SPACE  &mo LOWER                                                             &lt RAISE RET      &kp BSPC                                            &kp RCTRL
             >;
         };
 
@@ -193,11 +194,11 @@
             display-name = "Mac Base";
             sensor-bindings = <&scroll_down_up>;
             bindings = <
-&kp GRAVE         &kp N1      &kp N2  &kp N3            &kp N4        &kp N5                                    &kp KP_N7     &kp KP_N8  &kp KP_N9   &kp KP_DIVIDE                         &kp NUMBER_6  &kp N7  &kp N8     &kp N9   &kp N0    &kp MINUS
-&kp TAB           &kp Q       &kp W   &kp E             &kp R         &kp T                                     &kp KP_N4     &kp KP_N5  &kp KP_N6   &kp KP_MULTIPLY                       &kp Y         &kp U   &kp I      &kp O    &kp P     &kp EQUAL
-&kp CAPS          &kp A       &kp S   &kp D             &kp F         &kp G                    &kp INS          &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp RIGHT_BRACKET  &kp H         &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LSHFT         &kp Z       &kp X   &kp C             &kp V         &kp B                    &kp DELETE       &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp BACKSLASH      &kp N         &kp M   &kp COMMA  &kp DOT  &kp FSLH  &lt LOWER BACKSLASH
-&kp LEFT_COMMAND  &kp C_MUTE          &kp LEFT_CONTROL  &kp LEFT_ALT  &SandS LEFT_SHIFT SPACE  &mo LOWER                                                            &lt RAISE RET  &kp BSPC                                            &kp RCTRL
+&kp INT_KANA      &kp N1      &kp N2  &kp N3            &kp N4        &kp N5                                 &kp KP_N7     &kp KP_N8  &kp KP_N9   &kp KP_DIVIDE                         &kp NUMBER_6  &kp N7  &kp N8     &kp N9   &kp N0    &kp MINUS
+&kp TAB           &kp Q       &kp W   &kp E             &kp R         &kp T                                  &kp KP_N4     &kp KP_N5  &kp KP_N6   &kp KP_MULTIPLY                       &kp Y         &kp U   &kp I      &kp O    &kp P     &kp EQUAL
+&kp CAPS          &kp A       &kp S   &kp D             &kp F         &kp G                    &kp INS       &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp RIGHT_BRACKET  &kp H         &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LSHFT         &kp Z       &kp X   &kp C             &kp V         &kp B                    &kp DELETE    &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp BACKSLASH      &kp N         &kp M   &kp COMMA  &kp DOT  &kp FSLH  &lt LOWER BACKSLASH
+&kp LEFT_COMMAND  &kp C_MUTE          &kp LEFT_CONTROL  &kp LEFT_ALT  &SandS LEFT_SHIFT SPACE  &mo LOWER                                                             &lt RAISE RET      &kp BSPC                                            &kp RCTRL
             >;
         };
 
@@ -205,11 +206,11 @@
             display-name = "iPad Base";
             sensor-bindings = <&scroll_down_up>;
             bindings = <
-&kp GRAVE         &kp N1      &kp N2  &kp N3            &kp N4        &kp N5                                     &kp KP_N7     &kp KP_N8  &kp KP_N9   &kp KP_DIVIDE                          &kp NUMBER_6  &kp N7  &kp N8     &kp N9   &kp N0    &kp MINUS
-&kp TAB           &kp Q       &kp W   &kp E             &kp R         &kp T                                      &kp KP_N4     &kp KP_N5  &kp KP_N6   &kp KP_MULTIPLY                        &kp Y         &kp U   &kp I      &kp O    &kp P     &kp EQUAL
-&kp CAPS          &kp A       &kp S   &kp D             &kp F         &kp G                    &kp INS           &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp RIGHT_BRACKET   &kp H         &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LSHFT         &kp Z       &kp X   &kp C             &kp V         &kp B                    &kp DELETE        &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp BACKSLASH       &kp N         &kp M   &kp COMMA  &kp DOT  &kp FSLH  &lt LOWER BACKSLASH
-&kp LEFT_COMMAND  &kp C_MUTE          &kp LEFT_CONTROL  &kp LEFT_ALT  &SandS LEFT_SHIFT SPACE  &mo LOWER                                                            &lt RAISE RET  &kp BSPC                                            &kp RCTRL
+&kp INT_KANA      &kp N1      &kp N2  &kp N3            &kp N4        &kp N5                                 &kp KP_N7     &kp KP_N8  &kp KP_N9   &kp KP_DIVIDE                         &kp NUMBER_6  &kp N7  &kp N8     &kp N9   &kp N0    &kp MINUS
+&kp TAB           &kp Q       &kp W   &kp E             &kp R         &kp T                                  &kp KP_N4     &kp KP_N5  &kp KP_N6   &kp KP_MULTIPLY                       &kp Y         &kp U   &kp I      &kp O    &kp P     &kp EQUAL
+&kp CAPS          &kp A       &kp S   &kp D             &kp F         &kp G                    &kp INS       &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp RIGHT_BRACKET  &kp H         &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LSHFT         &kp Z       &kp X   &kp C             &kp V         &kp B                    &kp DELETE    &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp BACKSLASH      &kp N         &kp M   &kp COMMA  &kp DOT  &kp FSLH  &lt LOWER BACKSLASH
+&kp LEFT_COMMAND  &kp C_MUTE          &kp LEFT_CONTROL  &kp LEFT_ALT  &SandS LEFT_SHIFT SPACE  &mo LOWER                                                             &lt RAISE RET      &kp BSPC                                            &kp RCTRL
             >;
         };
 
@@ -217,11 +218,11 @@
             display-name = "Mouse";
             sensor-bindings = <&scroll_down_up>;
             bindings = <
-&trans     &trans  &trans  &trans  &trans  &trans                     &trans  &trans  &trans  &trans                     &trans  &trans  &trans  &trans      &trans         &trans
-&trans     &trans   &trans   &trans   &trans   &trans                      &trans  &trans  &trans  &trans                     &trans   &trans   &trans   &trans       &trans          &trans
-&trans    &trans   &mkp RCLK       &mkp MCLK       &mkp LCLK       &msc SCRL_UP    &msc SCRL_LEFT     &trans  &trans  &trans  &trans    &msc SCRL_LEFT   &msc SCRL_UP    &mkp LCLK       &mkp MCLK       &mkp RCLK           &trans  &trans
-&trans  &trans   &trans   &mkp MB4        &mkp MB5        &msc SCRL_DOWN  &msc SCRL_RIGHT    &trans  &trans  &trans  &trans    &msc SCRL_RIGHT  &msc SCRL_DOWN  &mkp MB4        &mkp MB5        &trans  &trans      &lt LOWER BACKSLASH
-&trans              &trans                          &trans          &trans          &trans          &trans                                               &trans           &trans                                                                                     &trans
+&trans  &trans  &trans     &trans     &trans     &trans                             &trans  &trans  &trans  &trans                     &trans          &trans     &trans     &trans     &trans  &trans
+&trans  &trans  &trans     &trans     &trans     &trans                             &trans  &trans  &trans  &trans                     &trans          &trans     &trans     &trans     &trans  &trans
+&trans  &trans  &mkp RCLK  &mkp MCLK  &mkp LCLK  &msc SCRL_UP    &msc SCRL_LEFT     &trans  &trans  &trans  &trans    &msc SCRL_LEFT   &msc SCRL_UP    &mkp LCLK  &mkp MCLK  &mkp RCLK  &trans  &trans
+&trans  &trans  &trans     &mkp MB4   &mkp MB5   &msc SCRL_DOWN  &msc SCRL_RIGHT    &trans  &trans  &trans  &trans    &msc SCRL_RIGHT  &msc SCRL_DOWN  &mkp MB4   &mkp MB5   &trans     &trans  &lt LOWER BACKSLASH
+&trans  &trans             &trans     &trans     &trans          &trans                                               &trans           &trans                                                   &trans
             >;
         };
 
