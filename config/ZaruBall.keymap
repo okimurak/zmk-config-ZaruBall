@@ -52,15 +52,6 @@
 
 / {
     behaviors {
-        // From https://github.com/kot149/zmk-layout-shift/blob/v1/dts/layout_shift_kp_override.dtsi
-        // Override the existing &kp behavior to use our custom implementation
-
-        kp: key_press {
-            compatible = "zmk,behavior-layout-shift-key-press";
-            #binding-cells = <1>;
-            label = "LAYOUT_SHIFT_KEY_PRESS";
-        };
-
         // スクロール用のbehaviorの設定
 
         scroll_down_up: behavior_sensor_rotate_mouse_wheel_down_up {
