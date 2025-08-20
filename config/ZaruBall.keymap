@@ -50,6 +50,10 @@
     };
 };
 
+&mkp_input_listener {
+    input-processors = <&zip_temp_layer 5 250>;
+};
+
 / {
     behaviors {
         // スクロール用のbehaviorの設定
@@ -105,25 +109,8 @@
     };
 };
 
-&sl { release-after-ms = <250>; }; // time needed for double click (for mkp_exit_AML)
 / {
     macros {
-        // When LCLK pressed, exit AML (after 250ms cause by sticky layer
-
-        mkp_exit_AML: mkp_exit_AML {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings =
-                <&macro_press>,
-                <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>,
-                <&macro_pause_for_release>,
-                <&macro_release>,
-                <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>,
-                <&macro_tap>,
-                <&sl MOUSE>;
-
-            label = "MKP_EXIT_AML";
-        };
 
         bt0: bt0 {
             compatible = "zmk,behavior-macro";
