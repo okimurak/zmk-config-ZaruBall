@@ -51,8 +51,8 @@
 #define JP_EISU         LANGUAGE_2        // EISUJI
 #define JP_HANZEN       GRAVE             // HANKAKU / ZENKAKU
 #define JP_BACKSLASH    INT1              // \
-#define JP_HENKAN       INTERNATIONAL_5   // HENKAN
-#define JP_MUHENKAN     INTERNATIONAL_4   // MUHENKAN
+#define JP_HENKAN       INT_5             // HENKAN
+#define JP_MUHENKAN     INT_4   // MUHENKAN
 
 // スクロール量の設定
 
