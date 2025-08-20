@@ -56,7 +56,7 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio1 12 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // MOTION
-        cpi = <600>;
+        cpi = <800>;
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
@@ -67,6 +67,26 @@
 
 &zip_temp_layer {
     require-prior-idle-ms = <200>;
+    excluded-positions = <
+        34
+        35
+        36
+        37
+        38
+        43
+        44
+        45 // J
+        46 // K
+        47 // ;
+        53
+        54
+        55
+        56
+        61
+        62
+        63 // Ctrl
+        64
+    >;
 };
 
 / {
