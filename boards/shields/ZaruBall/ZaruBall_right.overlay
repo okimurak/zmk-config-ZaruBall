@@ -1,6 +1,5 @@
 #include "ZaruBall.dtsi"
 //#include <dt-bindings/zmk/input_transform.h>
-#include <input/processors.dtsi>
 
 &xiao_serial { status = "disabled"; };
 
@@ -59,27 +58,14 @@
 
         /*   optional features   */
         // snipe-layers = <1 2>;
+        scroll-layers = <1 2 4 8 10 11 13>;
+        automouse-layer = <12>;
     };
-};
-
-&zip_temp_layer {
-    require-prior-idle-ms = <200>;
 };
 
 / {
   trackball_listener {
     compatible = "zmk,input-listener";
     device = <&trackball>;
-
-    input-processors = <&zip_temp_layer 12 100000>;
-
-    scroller {
-        layers = <1 2 4 8 10 11 13>;
-        input-processors = 
-            <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
-            <&zip_xy_to_scroll_mapper>,                         // Change scroll mode
-            <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>,   // Invert X
-            <&zip_scroll_scaler 1 5>;                           // 1/4 scroll scaler
-    };
   };
 };
