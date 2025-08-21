@@ -59,24 +59,7 @@
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 
 / {
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-
-        win_tri_layer {
-            if-layers = <WIN_LOWER WIN_RAISE>;
-            then-layer = <ADJUST>;
-        };
-
-        mac_tri_layer {
-            if-layers = <MAC_LOWER MAC_RAISE>;
-            then-layer = <ADJUST>;
-        };
-
-        ipad_tri_layer {
-            if-layers = <IPAD_LOWER IPAD_RAISE>;
-            then-layer = <ADJUST>;
-        };
-    };
+    conditional_layers { compatible = "zmk,conditional-layers"; };
 };
 
 / {
@@ -197,6 +180,15 @@
 };
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        ESCandToAdjustLayer {
+            bindings = <&lt 13 ESC>;
+            key-positions = <73 74>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
