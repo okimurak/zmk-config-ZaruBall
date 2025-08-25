@@ -64,6 +64,7 @@
     };
 };
 
+// You can find key number by entering config/info.json into https://zmk-physical-layout-converter.streamlit.app/
 &zip_temp_layer {
     require-prior-idle-ms = <200>;
     excluded-positions = <
@@ -76,7 +77,8 @@
         44 // H
         45 // J
         46 // K
-        47 // ;
+        47 // L
+        48 // ;
         53 // C
         54 // V
         55 // B
