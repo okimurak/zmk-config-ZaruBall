@@ -1,5 +1,7 @@
 #include "ZaruBall.dtsi"
-//#include <dt-bindings/zmk/input_transform.h>
+#include <dt-bindings/zmk/input_transform.h>
+#include <input/processors.dtsi>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 
 &xiao_serial { status = "disabled"; };
 
@@ -55,17 +57,54 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio1 12 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // MOTION
-
-        /*   optional features   */
-        // snipe-layers = <1 2>;
-        scroll-layers = <1 2 4 5 7 8 10>;
-        automouse-layer = <9>;
+        cpi = <800>;
+        evt-type = <INPUT_EV_REL>;
+        x-input-code = <INPUT_REL_X>;
+        y-input-code = <INPUT_REL_Y>;
     };
+};
+
+// You can find key number by entering config/info.json into https://zmk-physical-layout-converter.streamlit.app/
+&zip_temp_layer {
+    require-prior-idle-ms = <200>;
+    excluded-positions = <
+        34 // S
+        35 // D
+        36 // F
+        37 // G
+        38 // INS
+        43 // [
+        44 // H
+        45 // J
+        46 // K
+        47 // L
+        48 // ;
+        53 // C
+        54 // V
+        55 // B
+        56 // DELETE
+        61 // ]
+        62 // N
+        63 // M
+        64 // ,
+    >;
 };
 
 / {
   trackball_listener {
     compatible = "zmk,input-listener";
     device = <&trackball>;
+
+    input-processors = <&zip_temp_layer 9 100000>;
+
+    scroller {
+        layers = <1 2 4 5 7 8 10>;
+        input-processors = 
+            <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,       // Invert X
+            <&zip_xy_to_scroll_mapper>,                         // Change scroll mode
+            <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>,   // Invert X for scroll
+            <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>,   // Invert Y for scroll
+            <&zip_scroll_scaler 1 9>;                           // 1/8 scroll scaler
+    };
   };
 };
