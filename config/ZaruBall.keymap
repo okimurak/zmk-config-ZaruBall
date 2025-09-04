@@ -170,6 +170,17 @@
 
             label = "LALT_GRAVE";
         };
+
+        globe_upper: globe_upper {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&kt GLOBE>,
+                <&macro_wait_time 10>,
+                <&kp UP_ARROW &kt GLOBE>;
+
+            label = "GLOBE_UPPER";
+        };
     };
 };
 
@@ -275,11 +286,11 @@
         ipad_lower {
             display-name = "iPad Lower";
             bindings = <
-&trans  &kp F1     &kp F2          &kp F3          &kp F4     &kp F5                 &kp KP_NUMLOCK  &trans  &trans  &trans            &kp F6        &kp F7   &kp F8            &kp F9          &kp F10          &trans
-&trans  &trans     &kp LG(LS(N3))  &kp LG(LS(N4))  &trans     &trans                 &trans          &trans  &trans  &trans            &kp F11       &kp F12  &kp PRINTSCREEN   &kp SCROLLLOCK  &kp PAUSE_BREAK  &trans
-&trans  &trans     &trans          &kp UP          &trans     &kp HOME  &kp PG_UP    &trans          &trans  &trans  &trans    &trans  &kp C_VOL_UP  &trans   &kp LG(UP_ARROW)  &trans          &trans           &trans
-&trans  &trans     &kp LEFT        &kp DOWN        &kp RIGHT  &kp END   &kp PG_DN    &trans          &trans  &trans  &trans    &trans  &kp C_VOL_DN  &trans   &kp LG(H)         &trans          &trans           &trans
-&trans  &kp RSHFT                  &trans          &trans     &trans    &trans                                                 &trans  &kp DEL                                                                   &trans
+&trans  &kp F1     &kp F2          &kp F3          &kp F4     &kp F5                 &kp KP_NUMLOCK  &trans  &trans  &trans            &kp F6        &kp F7   &kp F8           &kp F9          &kp F10          &trans
+&trans  &trans     &kp LG(LS(N3))  &kp LG(LS(N4))  &trans     &trans                 &trans          &trans  &trans  &trans            &kp F11       &kp F12  &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &trans
+&trans  &trans     &trans          &kp UP          &trans     &kp HOME  &kp PG_UP    &trans          &trans  &trans  &trans    &trans  &kp C_VOL_UP  &trans   &globe_upper     &trans          &trans           &trans
+&trans  &trans     &kp LEFT        &kp DOWN        &kp RIGHT  &kp END   &kp PG_DN    &trans          &trans  &trans  &trans    &trans  &kp C_VOL_DN  &trans   &kp LG(H)        &trans          &trans           &trans
+&trans  &kp RSHFT                  &trans          &trans     &trans    &trans                                                 &trans  &kp DEL                                                                  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
