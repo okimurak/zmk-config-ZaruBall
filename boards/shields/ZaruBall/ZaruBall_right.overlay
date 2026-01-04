@@ -59,7 +59,6 @@
         irq-gpios = <&gpio1 12 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // MOTION
         cpi = <800>;
         swap-xy;
-        invert-x;
         invert-y;
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
@@ -103,9 +102,7 @@
     scroller {
         layers = <1 2 4 5 7 8 10>;
         input-processors = 
-            <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,       // Invert X
             <&zip_xy_to_scroll_mapper>,                         // Change scroll mode
-            <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>,   // Invert X for scroll
             <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>,   // Invert Y for scroll
             <&zip_scroll_scaler 1 9>;                           // 1/8 scroll scaler
     };
