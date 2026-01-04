@@ -103,6 +103,7 @@
         layers = <1 2 4 5 7 8 10>;
         input-processors = 
             <&zip_xy_to_scroll_mapper>,                         // Change scroll mode
+            <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>,   // Invert X for scroll
             <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>,   // Invert Y for scroll
             <&zip_scroll_scaler 1 9>;                           // 1/8 scroll scaler
     };
